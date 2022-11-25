@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import React, {useState} from 'React';
 import './App.css';
 
+const url = url();
+
 function App() {
+  
+  const [locationInput, Location] = useState({});
+  const [data, setLocation] = useState("");
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="top">
+        <div className="title">London</div>
+        <div className="temp"></div>
+        <div className="weatherFeeling">Cloudy</div>
+        
+        <div className="bottom">
+          <div className="feels"></div>
+           <div className="wind"></div>
+           <div className="humidity"></div>
+           <div className="sunSetting">
+             <div className="sunrise"></div>
+             <div className="sunset"></div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
