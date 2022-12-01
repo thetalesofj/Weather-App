@@ -3,16 +3,16 @@ import axios from 'axios';
 import {BsFillSunriseFill, BsFillSunsetFill, BsWind} from 'react-icons/bs'
 import {WiHumidity} from 'react-icons/wi'
 import {FaTemperatureHigh, FaTemperatureLow} from 'react-icons/fa'
+import {URL} from './api.js'
 
 function App() {
   const [data, setData] = useState({});
   const [location, setLocation] = useState("");
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=46277243f49668f14ea174429a77443b`;
   const imgUrl = `http://openweathermap.org/img/w/${data.weather?data.weather[0].icon:null}.png`;
   
   const findLocation = (event) => {
     if (event.key === 'Enter') {
-    axios.get(url).then((response) => {
+    axios.get(URL).then((response) => {
       setData(response.data)
       console.log(response.data)
     })
