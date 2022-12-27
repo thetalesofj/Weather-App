@@ -5,7 +5,12 @@ module.exports = {
     "./public/*.{js,html,jsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'app-warm': "url('https://pixabay.com/images/id-736885/')",
+        'app-cold': "url('https://pixabay.com/images/id-1185464/')",
+      }
+    },
   },
   plugins: [],
 }

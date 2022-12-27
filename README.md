@@ -1,6 +1,6 @@
 # Weather App
 
-This is a weather application built using the OpenWeatherMap API. The application includes temperature (max and min), humidity, real feel, daily forecast, sunrise and sunset
+A simple weather app built with React and TailwindCSS.
 
 ## Table of Contents
 
@@ -19,13 +19,19 @@ This is a weather application built using the OpenWeatherMap API. The applicatio
     4. Share any other tips or guidance for others attempting this or something similar.
  -->
 
+I wanted to learn how to make apps using React. Instead of inventing an app, I wanted to try and replicate a weather app with the styling implemented with TailwindCSS. 
+
+
+The app structure is partially based on ideas I've seen from Tyler Potts (https://github.com/TylerPottsDev/weather-react)
+
+
 ### Built With
 
 <!-- TODO: List any MAJOR libraries/frameworks (e.g. React, Tailwind) with links to their homepages. -->
 
 ## Features
 
-<!-- TODO: List what specific 'user problems' that this application solves. -->
+* Weather data is retrieved from [http://openweathermap.org/](http://openweathermap.org/)
 
 ## Contact
 

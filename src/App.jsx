@@ -21,8 +21,9 @@ function App() {
    }
   }
 
+
   return (
-    <div className="">
+    <div className={(data.main != undefined) ? ((data.main.temp > 16) ? 'bg-app-warm' : 'bg-app-cold') : 'bg-app-cold'}>
       <div className="">
         <input 
         value={location}
@@ -36,6 +37,7 @@ function App() {
           <div className="location">
             <p>{data.name}</p>
             {data.sys ? <p>{data.sys.country}</p> : null}
+            <div className="date"><p>{new Date().toLocaleString().slice(-20,-10)}</p></div>
           </div>
           <div className="temp">
             {data.main ? <h1>{data.main.temp.toFixed()}°C</h1> : null}
