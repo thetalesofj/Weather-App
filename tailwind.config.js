@@ -7,9 +7,10 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'app-warm': "url('https://pixabay.com/images/id-736885/')",
-        'app-cold': "url('https://pixabay.com/images/id-1185464/')",
-      }
+        'app_warm': "url('../public/img/warm.jpg')",
+        'app_cold': "url('../public/img/cold.jpg')",
+      },
+      screens: {'sm': {'max': '640px'} }
     },
   },
   plugins: [],

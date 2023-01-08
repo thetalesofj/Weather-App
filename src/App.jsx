@@ -23,74 +23,73 @@ function App() {
 
 
   return (
-    <div className={(data.main != undefined) ? ((data.main.temp > 16) ? 'bg-app-warm' : 'bg-app-cold') : 'bg-app-cold'}>
-      <div className="">
+    <div className={(data.main !== undefined) ? ((data.main.temp > 16) ? 'bg-app_warm bg-center bg-cover h-screen' 
+    : 'bg-app_cold bg-center bg-cover h-screen') 
+    : 'bg-app_cold bg-center bg-cover h-screen'}>
+      <div className="flex justify-center">
         <input 
+        className='border-4 border-black rounded-md mt-4'
         value={location}
         onChange={event => setLocation(event.target.value)}
         onKeyPress={findLocation}
         placeholder='Enter Location'
         type="text" />
       </div>
-      <div className="container">
-        <div className="top">
-          <div className="location">
-            <p>{data.name}</p>
-            {data.sys ? <p>{data.sys.country}</p> : null}
-            <div className="date"><p>{new Date().toLocaleString().slice(-20,-10)}</p></div>
-          </div>
-          <div className="temp">
-            {data.main ? <h1>{data.main.temp.toFixed()}°C</h1> : null}
-          </div>
-          <div className="description">
-            <img src={IMG_URL} alt=""></img> 
-          </div>
+      
+      <div className="mt-20 sm:mt-5 lg:mt-10 xl:mt-20">
+        {data.name !== undefined &&
+          <div className="grid place-items-center gap-2 p-3 m-4 border-black border-4 rounded-lg backdrop-blur-xl">
+           <div className="location">
+             <p className='sm:text-xl text-6xl font-bold text-center'>{data.name}</p>
+           </div>
+           <div>
+            {data.sys ? <p className='text-3xl font-bold flex justify-center'>{data.sys.country}</p> : null}
+           </div> 
+           <div className='text-xl font-bold'>
+              <p className='flex justify-center'>{new Date().toLocaleString().slice(-20,-10)}</p>
+           </div>
+           <div className='text-6xl font-black'>
+             {data.main ? <h1>{data.main.temp.toFixed()}°C</h1> : null}
+           </div>
+           <div className="scale-150">
+             <img src={IMG_URL} alt=""></img> 
+           </div>
         </div>
-
+}
       {data.name !== undefined && 
-        <div className="bottom1">
-          <div className="tempReadings">
-            <div className="tempMax"> 
+        <div className="grid place-items-center grid-cols-4 gap-2 p-3 m-4 border-black border-4 rounded-lg backdrop-blur-xl text-xl font-bold sm:grid-cols-2">
+            <div className="flex place-items-center space-x-1"> 
               <FaTemperatureHigh/>
-              <p>Max: </p>
               {data.main ? <p>{data.main.temp_max.toFixed()}°C</p> : null}
             </div>
-            <div className="tempMin">
+            <div className="flex place-items-center space-x-1">
               <FaTemperatureLow/>
-              <p>Min: </p>
               {data.main ? <p>{data.main.temp_min.toFixed()}°C</p> : null}
             </div>
-          </div>
-          <div className="sun">
-            <div className="sunrise">
+            <div className="flex place-items-center space-x-1">
               <BsFillSunriseFill/>
-              <p>Rise: </p>
               {data.sys ? <p>{new Date(data.sys.sunrise * 1000).toISOString().slice(-13,-8)}</p> : null}
             </div>
-            <div className="sunset">
+            <div className="flex place-items-center space-x-1">
               <BsFillSunsetFill/>
-              <p>Set: </p>
               {data.sys ? <p>{new Date(data.sys.sunset * 1000).toISOString().slice(-13,-8)}</p> : null}
             </div>
-          </div>
-          
         </div>
     }
       {data.name !== undefined &&
-        <div className="bottom2">
-          <div className="feels">
+        <div className="grid place-items-center grid-cols-3 gap-2 p-3 m-4 border-black border-4 rounded-lg backdrop-blur-xl text-xl font-bold sm:space-x-5">
+          <div className="grid place-items-center">
             <FaTemperatureHigh/>
-            <p>Feels Like</p>
             {data.main ? <p>{data.main.feels_like.toFixed()}°C</p> : null}
+          <p className='sm:text-center'>Feels Like</p>
           </div>
-          <div className="humidity">
+          <div className="grid place-items-center">
             <WiHumidity/>
-            <p>Humidity: </p>
             {data.main ? <p>{data.main.humidity}%</p> : null}
+          <p>Humidity</p>
           </div>
-          <div className="wind">
+          <div className="grid place-items-center sm:text-center">
             <BsWind/>
-            <p>Wind: </p>
             {data.wind ? <p>{data.wind.speed.toFixed()} MPH</p> : null}
           </div>
         </div>
